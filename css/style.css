@@ -64,20 +64,20 @@ body::before {
 }
 
 .loader-heart {
-  width: 80px;
-  height: 80px;
+  width: 110px;
+  height: 110px;
   margin: 0 auto 1rem;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff9feb, #b462f2);
-  box-shadow: 0 0 40px rgba(255, 111, 181, 0.3);
+  background: linear-gradient(135deg, #6fd7ff, #1889ff);
+  box-shadow: 0 0 50px rgba(75, 180, 255, 0.45);
   animation: heartBeat 1.4s ease-in-out infinite;
 }
 
 .loader-heart i {
-  font-size: 2rem;
-  color: white;
+  font-size: 2.8rem;
+  color: #ffffff;
 }
 
 .loader-card p {
@@ -98,7 +98,7 @@ body::before {
   display: block;
   width: 0;
   height: 100%;
-  background: linear-gradient(90deg, #ffb4d9, #ff6fb5);
+  background: linear-gradient(90deg, #8ed8ff, #1d89ff);
   animation: loadProgress 3s ease forwards;
 }
 
@@ -466,7 +466,7 @@ body::before {
 }
 
 .letter-icon i {
-  color: #ffbad9;
+  color: #8ed8ff;
 }
 
 .letter-card p {
@@ -484,7 +484,7 @@ body::before {
 }
 
 .player-status {
-  color: #f76fb3;
+  color: #56b9ff;
   font-weight: 600;
 }
 
@@ -543,8 +543,8 @@ body::before {
 
 .gallery-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
 }
 
 .gallery-card {
@@ -554,7 +554,7 @@ body::before {
   background: rgba(255, 255, 255, 0.20);
   border: 1px solid rgba(255, 255, 255, 0.22);
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   display: block;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
@@ -718,15 +718,16 @@ body::before {
 }
 
 .pill-icon {
-  width: 72px;
-  height: 72px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(125, 209, 255, 0.15);
-  color: #cbeeff;
-  font-size: 1.35rem;
-  border: 1px solid rgba(125, 209, 255, 0.3);
+  background: linear-gradient(135deg, rgba(68, 192, 255, 0.28), rgba(15, 105, 224, 0.28));
+  color: #eaf8ff;
+  font-size: 1.75rem;
+  border: 1px solid rgba(125, 209, 255, 0.45);
+  box-shadow: 0 0 28px rgba(74, 190, 255, 0.22);
 }
 
 .pill-card h4 {
