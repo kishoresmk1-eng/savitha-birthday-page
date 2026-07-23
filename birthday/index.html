@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Savitha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="overlay" id="pageLoader">
+    <div class="loader-card glass-card">
+      <div class="loader-heart"><i class="fas fa-heart"></i></div>
+      <p>Preparing Something Special...</p>
+      <div class="loader-bar">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="magic-glow"></div>
+  <div id="heroParticles"></div>
+
+  <header class="nav-panel container-fluid px-4 py-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="brand">Savitha</div>
+      <div class="nav-links d-none d-md-flex gap-4">
+        <a href="#hero">Home</a>
+        <a href="#countdown">Countdown</a>
+        <a href="#memories">Memories</a>
+        <a href="#surprise">Surprise</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero-section d-flex align-items-center justify-content-center text-center">
+      <div class="hero-content container position-relative">
+        <span class="hero-tag">Happy Birthday, My Dear Friend</span>
+        <h1 class="display-4">Happy Birthday<br /><span>Savitha</span></h1>
+        <p class="hero-subtitle">To my closest friend who makes every day brighter.</p>
+        <div class="hero-actions mt-4">
+          <button class="btn btn-glow btn-lg" id="beginButton">Begin The Surprise</button>
+        </div>
+        <div class="hero-media glass-card mt-5">
+          <img src="images/couple1.jpg" alt="Couple photo" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section id="countdown" class="section-panel container py-5 position-relative">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span>Waiting For The Moment</span>
+        <h2>Counting Down To Your Special Day</h2>
+      </div>
+      <div class="countdown-grid mt-4">
+        <div class="count-card glass-card">
+          <h3 id="days">00</h3>
+          <p>Days</p>
+        </div>
+        <div class="count-card glass-card">
+          <h3 id="hours">00</h3>
+          <p>Hours</p>
+        </div>
+        <div class="count-card glass-card">
+          <h3 id="minutes">00</h3>
+          <p>Minutes</p>
+        </div>
+        <div class="count-card glass-card">
+          <h3 id="seconds">00</h3>
+          <p>Seconds</p>
+        </div>
+      </div>
+      <div class="birthday-message mt-4 text-center" id="birthdayMessage"></div>
+    </section>
+
+    <section id="about" class="section-panel container py-5">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="glass-card about-card p-4">
+            <h2>The Friend Who Lights My Days</h2>
+            <p class="animated-text" id="lifeText"></p>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center" data-aos="fade-left">
+          <div class="mini-panel glass-card p-4">
+            <div class="icon-glow"><i class="fas fa-star"></i></div>
+            <p>Every moment with you feels like a premium day in a dream. Your presence is warmth, grace, and an endless gift.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="love-letter" class="section-panel container py-5">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span>Dear Friend</span>
+        <h2>A Message Just For You</h2>
+      </div>
+      <div class="glass-card letter-card p-5 mt-4" data-aos="zoom-in">
+        <div class="letter-top d-flex align-items-center justify-content-between mb-4">
+          <h3>Dear Friend,</h3>
+          <div class="letter-icon"><i class="fas fa-heart"></i></div>
+        </div>
+        <p id="letterText"></p>
+      </div>
+    </section>
+
+    <section id="voice" class="section-panel container py-5">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span>A Message From Me</span>
+        <h2>Friendship Note</h2>
+      </div>
+      <div class="voice-player glass-card p-4 mt-4" data-aos="fade-up">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <h3>Voice Message</h3>
+            <p>Tap play and feel the melody of my heart.</p>
+          </div>
+          <div class="player-status"><span id="playerState">Paused</span></div>
+        </div>
+        <div class="audio-wave mb-4"><span></span><span></span><span></span><span></span><span></span></div>
+        <audio id="voiceAudio" src="audio/voice-message.mp3"></audio>
+        <div class="audio-controls d-flex align-items-center gap-3">
+          <button class="btn btn-glow" id="playVoice"><i class="fas fa-play"></i></button>
+          <button class="btn btn-outline-light" id="pauseVoice"><i class="fas fa-pause"></i></button>
+          <div class="w-100">
+            <input type="range" id="voiceSeek" min="0" max="100" value="0" />
+          </div>
+          <div class="audio-time"><span id="voiceCurrent">0:00</span> / <span id="voiceDuration">0:00</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="music" class="section-panel container py-5">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span>Background Music</span>
+        <h2>Soft Melody For You</h2>
+      </div>
+      <div class="music-card glass-card p-4 mt-4" data-aos="fade-up">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+          <div>
+            <h3>Golden Memories</h3>
+            <p>Play the background song after tapping anywhere.</p>
+          </div>
+          <div class="music-controls d-flex align-items-center gap-2">
+            <button class="btn btn-glow" id="musicToggle"><i class="fas fa-music"></i></button>
+            <div class="volume-control d-flex align-items-center gap-2">
+              <i class="fas fa-volume-down"></i>
+              <input id="musicVolume" type="range" min="0" max="1" step="0.05" value="0.7" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="memories" class="section-panel container py-5 position-relative">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span>Our Beautiful Memories</span>
+        <h2>Every Picture Tells Our Story</h2>
+      </div>
+      <div class="gallery-caption text-center mt-3" data-aos="fade-up">
+        <p>Each memory is a quiet reminder of your smile, your eyes, and how much your friendship means.</p>
+      </div>
+      <div class="gallery-slider mt-5" data-aos="fade-right">
+        <div class="gallery-row row gx-4">
+          <div class="col-12 col-md-6 col-xl-3 mb-4">
+            <div class="gallery-card glass-card" data-tilt>
+              <img src="images/couple1.jpg" alt="Memory 1" loading="lazy" />
+              <div class="gallery-overlay"><p>Each moment with you is precious.</p></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3 mb-4">
+            <div class="gallery-card glass-card" data-tilt>
+              <img src="images/couple2.jpg" alt="Memory 2" loading="lazy" />
+              <div class="gallery-overlay"><p>Each moment with you is precious.</p></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3 mb-4">
+            <div class="gallery-card glass-card" data-tilt>
+              <img src="images/couple3.jpg" alt="Memory 3" loading="lazy" />
+              <div class="gallery-overlay"><p>Each moment with you is precious.</p></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3 mb-4">
+            <div class="gallery-card glass-card" data-tilt>
+              <img src="images/couple4.jpg" alt="Memory 4" loading="lazy" />
+              <div class="gallery-overlay"><p>Each moment with you is precious.</p></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3 mb-4">
+            <div class="gallery-card glass-card" data-tilt>
+              <img src="images/couple5.jpg" alt="Memory 5" loading="lazy" />
+              <div class="gallery-overlay"><p>Each moment with you is precious.</p></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3 mb-4">
+            <div class="gallery-card glass-card" data-tilt>
+              <img src="images/couple6.jpg" alt="Memory 6" loading="lazy" />
+              <div class="gallery-overlay"><p>Each moment with you is precious.</p></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3 mb-4">
+            <div class="gallery-card glass-card" data-tilt>
+              <img src="images/couple7.jpg" alt="Memory 7" loading="lazy" />
+              <div class="gallery-overlay"><p>Each moment with you is precious.</p></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3 mb-4">
+            <div class="gallery-card glass-card" data-tilt>
+              <img src="images/couple8.jpg" alt="Memory 8" loading="lazy" />
+              <div class="gallery-overlay"><p>Each moment with you is precious.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-notes text-center mt-4" data-aos="fade-up">
+        <span>Luxury masonry, soft motion, and unforgettable frames for our friendship story.</span>
+      </div>
+    </section>
+
+    <section id="timeline" class="section-panel container py-5">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span>Photo Timeline</span>
+        <h2>Moments That Built Us</h2>
+      </div>
+      <div class="timeline mt-5">
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+          <span>The Day We Met</span>
+          <p>Quiet conversations turned into a lasting friendship.</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+          <span>Our Favorite Selfies 📸</span>
+          <p>Every frame captured a piece of our joy.</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+          <span>Beautiful Memories 🌸</span>
+          <p>Soft moments, sweet sunsets, and laughter.</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+          <span>Happy Moments ✨</span>
+          <p>Every day together felt like a celebration.</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+          <span>Future Adventures ✈️</span>
+          <p>Dreaming of a thousand new destinations with you.</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
+          <span>Better Days Ahead</span>
+          <p>Our friendship story is the most beautiful journey.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section-panel container py-5">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span>Why I Appreciate You</span>
+        <h2>The Best Parts of Our Friendship</h2>
+      </div>
+      <div class="card-grid mt-5" data-aos="fade-up">
+        <div class="pill-card" data-tilt>
+          <div class="pill-card-inner">
+            <div class="pill-icon"><i class="fas fa-heart"></i></div>
+            <h4>Your Smile</h4>
+            <p>It brightens every room and makes each day better.</p>
+          </div>
+        </div>
+        <div class="pill-card" data-tilt>
+          <div class="pill-card-inner">
+            <div class="pill-icon"><i class="fas fa-heart"></i></div>
+            <h4>Your Eyes</h4>
+            <p>They hold warmth, kindness, and a spark of joy.</p>
+          </div>
+        </div>
+        <div class="pill-card" data-tilt>
+          <div class="pill-card-inner">
+            <div class="pill-icon"><i class="fas fa-heart"></i></div>
+            <h4>Your Kindness</h4>
+            <p>You make every moment feel soft, calm, and unforgettable.</p>
+          </div>
+        </div>
+        <div class="pill-card" data-tilt>
+          <div class="pill-card-inner">
+            <div class="pill-icon"><i class="fas fa-heart"></i></div>
+            <h4>Your Laugh</h4>
+            <p>Your laughter is the best sound on any day.</p>
+          </div>
+        </div>
+        <div class="pill-card" data-tilt>
+          <div class="pill-card-inner">
+            <div class="pill-icon"><i class="fas fa-heart"></i></div>
+            <h4>Your Voice</h4>
+            <p>It feels comforting, honest, and full of trust.</p>
+          </div>
+        </div>
+        <div class="pill-card" data-tilt>
+          <div class="pill-card-inner">
+            <div class="pill-icon"><i class="fas fa-heart"></i></div>
+            <h4>Your Caring Heart</h4>
+            <p>You always know how to lift someone up with care.</p>
+          </div>
+        </div>
+        <div class="pill-card" data-tilt>
+          <div class="pill-card-inner">
+            <div class="pill-icon"><i class="fas fa-heart"></i></div>
+            <h4>Your Support</h4>
+            <p>Your presence makes every challenge easier to face.</p>
+          </div>
+        </div>
+        <div class="pill-card" data-tilt>
+          <div class="pill-card-inner">
+            <div class="pill-icon"><i class="fas fa-heart"></i></div>
+            <h4>Everything About You</h4>
+            <p>Every part of you is a beautiful reason to smile.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hidden" class="section-panel container py-5">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span>Hidden Letter</span>
+        <h2>Open My Secret Letter</h2>
+      </div>
+      <div class="envelope-wrap mt-5 text-center" data-aos="fade-up">
+        <div class="envelope" id="envelope">
+          <div class="flap"></div>
+          <div class="paper">
+            <div class="paper-text">
+              <h3>My Ammu,</h3>
+              <p>You are my favorite story, my quiet peace, and the friend I can always trust through every sunrise.</p>
+              <p>உன் நட்பு எனக்கு எல்லாவற்றிலும் மேலானது. இந்த சிறந்த நாளில் உனக்கு மனமார்ந்த வாழ்த்துக்கள்!</p>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-glow mt-4" id="openLetterBtn">Open My Secret Letter</button>
+      </div>
+    </section>
+
+    <section id="surprise" class="section-panel container-fluid py-5 text-center surprise-section">
+      <div class="section-header text-center text-white" data-aos="fade-up">
+        <span>Final Surprise</span>
+        <h2>One Last Surprise</h2>
+      </div>
+      <button class="btn btn-xl btn-glow mt-4" id="surpriseButton">One Last Surprise</button>
+      <div class="surprise-reveal glass-card mt-5 p-5" id="surpriseReveal" data-aos="zoom-in">
+        <div class="surprise-photo">
+          <img src="images/couple2.jpg" alt="Best photo" loading="lazy" />
+        </div>
+        <div class="surprise-text mt-4">
+          <h3>Happy Birthday<br />My Friend</h3>
+          <p>You are my favorite friend, my greatest blessing, my happiest memory, and the one who always understands me.</p>
+          <p>Thank you for being a beautiful part of my journey. Your friendship means more than words can say.</p>
+          <p>Happy Birthday Thangamaee. Always by your side as your close friend.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-panel text-center py-4">
+    <p>Made With ❤️ Especially For Savitha</p>
+    <p>Created By Kishore</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.23/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.6.1/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.3/vanilla-tilt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
